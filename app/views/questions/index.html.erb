@@ -1,0 +1,21 @@
+<h1>All questions.</h1>
+
+<table>
+  <tr>
+    <th>Question</th>
+    <th>Tags</th>
+  </tr>
+
+  <% @questions.each do |question| %>
+    <tr>
+      <td><%= question.text %></td>
+      <td>
+        <% question.tags.each do |tag| %>
+          <%= tag.text %>,&nbsp;
+        <% end %>
+      </td>
+      <td><%= link_to 'Edit', edit_question_path(question) %></td>
+    </tr>
+  <% end %>
+</table>
+<p><%= link_to 'New Question', new_question_path %></p>
